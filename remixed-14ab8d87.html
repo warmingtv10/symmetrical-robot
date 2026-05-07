@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Panchagarh & Tetulia Travel Guide</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--forest:#122b1e;--evergreen:#1a4731;--fern:#2d6a4f;--jade:#52b788;--gold:#c9963a;--gold-lt:#f0c060;--cream:#fdf8f0;--offwhite:#f5f1e8;--text:#1a2a1a;--mid:#445544;--dark:#080e09}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+
+.navbar{position:sticky;top:0;z-index:200;background:var(--forest);border-bottom:2px solid var(--gold);display:flex;align-items:center;padding:0 1.5rem;overflow-x:auto;scrollbar-width:none}
+.navbar::-webkit-scrollbar{display:none}
+.nav-brand{font-size:1rem;font-weight:700;color:var(--gold);text-decoration:none;padding:.85rem 1rem .85rem 0;margin-right:.5rem;border-right:1px solid rgba(255,255,255,.12);white-space:nowrap;flex-shrink:0}
+.nav-link{color:rgba(255,255,255,.75);font-size:.78rem;font-weight:500;padding:.85rem .75rem;white-space:nowrap;flex-shrink:0;text-decoration:none;border-bottom:2px solid transparent;transition:color .2s}
+.nav-link:hover,.nav-link.active{color:var(--gold-lt);border-bottom-color:var(--gold)}
+.nav-drop{position:relative;flex-shrink:0}
+.nav-drop-btn{display:flex;align-items:center;gap:.3rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.75);font-size:.78rem;font-weight:500;padding:.85rem .75rem;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-drop-btn:hover{color:var(--gold-lt);border-bottom-color:var(--gold)}
+.drop-menu{display:none;position:absolute;top:calc(100% + 2px);left:0;background:#0c1a0e;border:1px solid rgba(201,150,58,.3);border-radius:14px;min-width:260px;padding:.5rem;z-index:300;box-shadow:0 18px 45px rgba(0,0,0,.5)}
+.nav-drop.open .drop-menu{display:block}
+.drop-item{display:flex;align-items:center;gap:.7rem;padding:.6rem .75rem;border-radius:9px;text-decoration:none;color:rgba(255,255,255,.7);transition:background .15s}
+.drop-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.drop-ico{width:32px;height:32px;border-radius:8px;flex-shrink:0;background:rgba(201,150,58,.12);display:flex;align-items:center;justify-content:center;font-size:.88rem}
+.drop-txt strong{display:block;font-size:.78rem;font-weight:600}
+.drop-txt small{display:block;font-size:.66rem;color:rgba(255,255,255,.35)}
+.drop-sep{height:1px;background:rgba(255,255,255,.07);margin:.3rem .5rem}
+
+.hero{min-height:92vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 6rem;background:linear-gradient(160deg,#08180d 0%,#1a4731 45%,#2d6a4f 75%,#4a9272 100%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:58px 58px}
+.hero>*:not(.hero-grid){position:relative;z-index:1}
+.hero-badge{display:inline-block;background:var(--gold);color:var(--forest);font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 16px;border-radius:30px;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:.5rem}
+.hero h1 em{color:var(--gold-lt);font-style:italic}
+.hero-sub{font-size:clamp(.9rem,2vw,1.1rem);color:rgba(255,255,255,.78);max-width:560px;margin:0 auto 2.5rem;font-weight:300;line-height:1.78}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.8rem;border-radius:40px;font-size:.86rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:transform .15s;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--forest)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+.hero-stats{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:2.5rem;z-index:2}
+@media(max-width:640px){.hero-stats{display:none}}
+.hstat .val{font-size:1.8rem;font-weight:700;color:var(--gold-lt);display:block}
+.hstat .lbl{font-size:.65rem;color:rgba(255,255,255,.55)}
+.hstat-div{width:1px;height:44px;background:rgba(255,255,255,.2);align-self:center}
+
+section{padding:4.5rem 1.5rem}
+.inner{max-width:1100px;margin:0 auto}
+.s-alt{background:var(--offwhite)}
+.s-dark{background:var(--dark)}
+.s-tag{font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--fern);margin-bottom:.35rem}
+.s-tag-lt{color:rgba(82,183,136,.7)}
+.s-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--forest);line-height:1.15;margin-bottom:.45rem}
+.s-title-lt{color:#fff}
+.s-title em{color:var(--gold);font-style:normal}
+.s-rule{width:42px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:2rem}
+.s-lead{font-size:.98rem;color:var(--mid);max-width:640px;margin-bottom:2.5rem;font-weight:300;line-height:1.78}
+
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem}
+.acard{background:var(--evergreen);border-radius:16px;padding:1.5rem;color:#fff}
+.acard .ico{font-size:1.7rem;margin-bottom:.65rem}
+.acard h3{font-size:1rem;color:var(--gold-lt);margin-bottom:.4rem}
+.acard p{font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.65}
+.acard-wide{grid-column:1/-1;background:linear-gradient(135deg,var(--forest),var(--fern))}
+@media(min-width:700px){.acard-wide{grid-column:span 2}}
+
+.attr-list{display:grid;gap:1.3rem}
+.attr{display:grid;grid-template-columns:200px 1fr;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid rgba(26,71,49,.1);transition:transform .2s}
+.attr:hover{transform:translateY(-3px)}
+.attr-img{display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.attr-body{padding:1.3rem}
+.badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+.badge{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:30px}
+.b-nat{background:#e8f5ee;color:#0f6e56}.b-his{background:#fdf3d7;color:#7a5500}.b-bor{background:#e6f1fb;color:#185fa5}.b-tea{background:#f0f7f2;color:#1a4731}.b-wat{background:#e0f4ff;color:#0277a8}
+.attr-body h3{font-size:1.15rem;color:var(--forest);margin-bottom:.4rem}
+.attr-body p{font-size:.83rem;color:#555;line-height:1.7;margin-bottom:.65rem}
+.attr-meta{display:flex;gap:.85rem;flex-wrap:wrap}
+.attr-meta span{font-size:.72rem;color:var(--fern);font-weight:500}
+@media(max-width:600px){.attr{grid-template-columns:1fr}.attr-img{height:100px}}
+
+.gal-wrap{display:grid;grid-template-columns:1fr 310px;gap:2.5rem;align-items:start}
+@media(max-width:900px){.gal-wrap{grid-template-columns:1fr}}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.g-item{border-radius:10px;overflow:hidden;position:relative;aspect-ratio:1}
+.g-wide{grid-column:span 2;aspect-ratio:2/1}
+.g-item svg{width:100%;height:100%;display:block}
+.g-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font-size:.7rem;font-weight:500;padding:1.2rem .6rem .45rem}
+
+.ws-sidebar{background:#080e09;border-radius:18px;overflow:hidden;border:1px solid rgba(201,150,58,.25);position:sticky;top:72px}
+.ws-head{background:linear-gradient(135deg,#0a0a0a,#191919);padding:1.3rem;border-bottom:1px solid rgba(201,150,58,.18);text-align:center}
+.ws-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.ws-title{font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:.22rem}
+.ws-sub{font-size:.7rem;color:rgba(255,255,255,.38)}
+.ws-nav{padding:.5rem 0}
+.ws-lnk{display:flex;align-items:center;gap:.65rem;padding:.58rem 1.1rem;text-decoration:none;color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;border-left:3px solid transparent;transition:all .18s}
+.ws-lnk:hover{color:#fff;background:rgba(255,255,255,.04);border-left-color:var(--gold)}
+.ws-ico{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;background:rgba(255,255,255,.06)}
+.ws-ln{display:block;font-size:.78rem;font-weight:600}
+.ws-ld{display:block;font-size:.65rem;color:rgba(255,255,255,.3);margin-top:1px}
+.ws-arr{color:rgba(255,255,255,.18);font-size:.7rem;margin-left:auto}
+.ws-lnk:hover .ws-arr{color:var(--gold)}
+.ws-cta-wrap{padding:1rem 1.1rem;border-top:1px solid rgba(201,150,58,.14);text-align:center}
+.ws-cta{display:block;width:100%;padding:.65rem;background:var(--gold);color:#080e09;border-radius:10px;font-size:.82rem;font-weight:700;text-decoration:none;text-align:center}
+.ws-cta-note{font-size:.65rem;color:rgba(255,255,255,.26);margin-top:.4rem}
+
+.ws-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-bottom:2rem}
+.wsc{background:rgba(255,255,255,.04);border:1px solid rgba(201,150,58,.18);border-radius:14px;padding:1.3rem}
+.wsc h4{font-size:.96rem;color:var(--gold-lt);margin-bottom:.5rem}
+.wsc p{font-size:.78rem;color:rgba(255,255,255,.62);line-height:1.7}
+.wsc ul{list-style:none}
+.wsc ul li{font-size:.78rem;color:rgba(255,255,255,.62);padding:.26rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.wsc ul li::before{content:'→ ';color:var(--gold)}
+.wsc ul li:last-child{border-bottom:none}
+.wsc-hl{background:linear-gradient(135deg,rgba(201,150,58,.14),rgba(201,150,58,.04));border-color:rgba(201,150,58,.35)}
+
+.oo-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1rem}
+.oo-card{background:#fff;border:1px solid rgba(26,71,49,.12);border-radius:14px;padding:1.3rem;text-align:center;transition:transform .2s}
+.oo-card:hover{transform:translateY(-4px)}
+.oo-num{width:40px;height:40px;border-radius:50%;background:var(--evergreen);color:var(--gold-lt);font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto .6rem}
+.oo-ico{font-size:1.35rem;margin-bottom:.4rem}
+.oo-card h4{font-size:.9rem;color:var(--forest);margin-bottom:.32rem}
+.oo-card p{font-size:.74rem;color:#666;line-height:1.6}
+
+.mentor-wrap{display:grid;grid-template-columns:255px 1fr;gap:2.8rem;align-items:start}
+@media(max-width:700px){.mentor-wrap{grid-template-columns:1fr}}
+.mentor-portrait{border-radius:18px;overflow:hidden;background:linear-gradient(155deg,var(--forest),var(--fern));aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.mp-icon{font-size:3.8rem;display:block;margin-bottom:.5rem}
+.mp-name{font-size:1.05rem;font-weight:700;color:var(--gold-lt)}
+.mp-lbl{font-size:.68rem;color:rgba(255,255,255,.45);letter-spacing:1px;margin-top:.2rem}
+.mentor-awards{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.mchip{font-size:.66rem;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(82,183,136,.12);color:var(--jade);border:1px solid rgba(82,183,136,.25)}
+.mentor-bio{font-size:.86rem;color:#444;line-height:1.8}
+.mentor-bio strong{color:var(--forest)}
+.mentor-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.3rem}
+.msbox{background:var(--offwhite);border-radius:12px;padding:.85rem;text-align:center;border:1px solid rgba(26,71,49,.1)}
+.msbox .msv{font-size:1.35rem;font-weight:700;color:var(--gold);display:block}
+.msbox .msl{font-size:.66rem;color:#777}
+
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.2rem}
+.tcard{background:#fff;border-radius:16px;padding:1.3rem;border:1px solid rgba(26,71,49,.1);position:relative}
+.tcard::before{content:'"';position:absolute;top:.8rem;right:1rem;font-size:4rem;line-height:1;color:rgba(45,106,79,.07)}
+.t-stars{color:var(--gold);font-size:.8rem;margin-bottom:.5rem}
+.t-quote{font-size:.81rem;color:#444;line-height:1.75;font-style:italic;margin-bottom:.85rem}
+.t-person{display:flex;align-items:center;gap:.55rem}
+.t-ava{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;color:#fff;flex-shrink:0}
+.t-name{font-size:.8rem;font-weight:700;color:var(--forest)}
+.t-meta{font-size:.66rem;color:#888}
+
+.prof-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:700px){.prof-layout{grid-template-columns:1fr}}
+.prof-visual{background:linear-gradient(135deg,#080e09,#121f14);border-radius:18px;padding:2rem;border:1px solid rgba(201,150,58,.2);text-align:center}
+.prof-ava{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--evergreen),var(--fern));border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:var(--gold);margin:0 auto 1rem}
+.prof-name{font-size:1.2rem;color:#fff;font-weight:700}
+.prof-tag{font-size:.7rem;color:rgba(255,255,255,.4);margin-top:.22rem;letter-spacing:.5px}
+.prof-div{height:1px;background:rgba(255,255,255,.08);margin:.9rem 0}
+.prof-quote{font-size:.88rem;font-style:italic;color:rgba(255,255,255,.65);line-height:1.7}
+.prof-qattr{font-size:.68rem;color:var(--gold);margin-top:.4rem}
+.pubs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+.pub{font-size:.66rem;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(45,106,79,.1);color:var(--fern);border:1px solid rgba(45,106,79,.2)}
+
+.collage-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:200px 200px;gap:.5rem}
+@media(max-width:650px){.collage-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,150px)}}
+.coll{border-radius:10px;overflow:hidden;position:relative;cursor:pointer}
+.coll svg{width:100%;height:100%;display:block}
+.coll-tall{grid-row:span 2}
+.coll-wide{grid-column:span 2}
+.coll-ov{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .22s;display:flex;align-items:center;justify-content:center}
+.coll:hover .coll-ov{background:rgba(0,0,0,.45)}
+.coll-ov-ico{font-size:1.8rem;opacity:0;transition:opacity .22s}
+.coll:hover .coll-ov-ico{opacity:1}
+.coll-cap{position:absolute;bottom:0;left:0;right:0;padding:1.1rem .6rem .42rem;background:linear-gradient(transparent,rgba(0,0,0,.68));color:#fff;font-size:.68rem;font-weight:500;opacity:0;transition:opacity .22s}
+.coll:hover .coll-cap{opacity:1}
+
+.ti-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.85rem;margin-bottom:2.5rem}
+.tic{background:#fff;border:1px solid rgba(26,71,49,.12);border-radius:13px;padding:1.1rem}
+.tic h4{font-size:.78rem;font-weight:700;color:var(--forest);margin-bottom:.6rem}
+.tic ul{list-style:none}
+.tic ul li{font-size:.76rem;color:#555;padding:.26rem 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.tic ul li:last-child{border-bottom:none}
+.tic ul li::before{content:'→ ';color:var(--jade);font-weight:700}
+.rtable{width:100%;border-collapse:collapse;font-size:.74rem}
+.rtable th{padding:.48rem .6rem;text-align:left;font-weight:700;white-space:nowrap}
+.rtable td{padding:.45rem .6rem;white-space:nowrap}
+.rtable tr:nth-child(even) td{background:#fafafa}
+.route-tab-btn{flex:1;padding:.62rem;font-size:.76rem;font-weight:700;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit}
+.route-tab-btn.active{color:var(--fern);border-bottom-color:var(--fern)}
+.route-tab-btn:not(.active){color:#999}
+
+/* WEATHER */
+.wx-bar-wrap{display:flex;align-items:flex-end;gap:4px;height:110px;padding-bottom:4px}
+.wx-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.wx-bar-fill{width:100%;border-radius:4px 4px 0 0;min-height:5px;transition:opacity .2s}
+.wx-mcard{border-radius:11px;padding:.6rem .45rem;text-align:center;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);transition:all .2s}
+.wx-mcard.active{border-color:var(--gold);background:rgba(201,150,58,.15)}
+.wx-mcard.best{border-color:rgba(82,183,136,.3);background:rgba(82,183,136,.06)}
+.wx-mcard.warn{border-color:rgba(230,57,70,.3);background:rgba(230,57,70,.06)}
+.wx-stat{background:rgba(255,255,255,.05);border-radius:9px;padding:.5rem .45rem;text-align:center;border:1px solid rgba(255,255,255,.07)}
+
+/* MAP */
+.map-section{background:#0a1a0f;padding:4.5rem 1.5rem}
+.map-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 310px;gap:1.5rem;align-items:start}
+@media(max-width:860px){.map-layout{grid-template-columns:1fr}}
+.map-frame-wrap{border-radius:18px;overflow:hidden;border:1px solid rgba(212,160,23,.25);position:relative;background:#1a2e1f}
+.map-frame-wrap iframe{width:100%;height:440px;border:none;display:block;opacity:0;transition:opacity .5s}
+@media(max-width:600px){.map-frame-wrap iframe{height:300px}}
+.map-tabs{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.map-tab{padding:.42rem 1rem;border-radius:22px;border:.5px solid rgba(212,160,23,.3);background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);font-size:.76rem;font-weight:500;cursor:pointer;transition:all .18s;font-family:inherit}
+.map-tab:hover{color:#fff;background:rgba(45,106,79,.4)}
+.map-tab.active{background:var(--gold);color:var(--forest);border-color:var(--gold);font-weight:700}
+.map-place-card{background:rgba(255,255,255,.04);border:.5px solid rgba(82,183,136,.18);border-radius:14px;padding:1rem;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.map-place-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);border-radius:3px 0 0 3px;transform:scaleY(0);transition:transform .2s}
+.map-place-card:hover,.map-place-card.active{background:rgba(45,106,79,.25);border-color:rgba(212,160,23,.35)}
+.map-place-card:hover::before,.map-place-card.active::before{transform:scaleY(1)}
+
+/* FB */
+.fb-box{background:#f0f2f5;border-radius:16px;overflow:hidden;border:1px solid #ddd;max-width:680px;margin:0 auto}
+.fb-cov{height:180px;background:linear-gradient(155deg,#081309,#1a4731 50%,#52b788 100%);display:flex;align-items:center;justify-content:center;text-align:center}
+.fb-cov h2{font-size:1.3rem;font-weight:700;color:#fff}
+.fb-prof{background:#fff;padding:0 1.2rem 1.1rem}
+.fb-ava{width:76px;height:76px;border-radius:50%;border:4px solid #fff;background:var(--evergreen);margin-top:-38px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;font-weight:700;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.fb-btn{padding:.4rem .95rem;border-radius:7px;font-size:.78rem;font-weight:700;cursor:pointer;border:none;font-family:inherit}
+.fb-like{background:#1b74e4;color:#fff}.fb-follow,.fb-share{background:#e4e6eb;color:#1c1e21}
+.fb-tab{font-size:.77rem;font-weight:700;color:#65676b;padding:.65rem .9rem;border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.fb-tab.active{color:#1b74e4;border-bottom-color:#1b74e4}
+
+/* YT */
+.yt-box{background:#0f0f0f;border-radius:16px;overflow:hidden;max-width:680px;margin:0 auto}
+.yt-sub{background:#fff;color:#0f0f0f;border:none;border-radius:22px;font-size:.8rem;font-weight:700;padding:.42rem 1rem;cursor:pointer;white-space:nowrap;font-family:inherit}
+.yt-tab{font-size:.78rem;font-weight:600;color:#aaa;padding:.7rem 1rem;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.yt-tab.active{color:#fff;border-bottom-color:#fff}
+.yt-thumb{border-radius:9px;aspect-ratio:16/9;position:relative;overflow:hidden;margin-bottom:.4rem}
+.yt-play::after{content:'';border-left:11px solid #fff;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent;margin-left:3px}
+
+/* FAQ */
+.faq-item{background:#fff;border:1px solid rgba(26,71,49,.12);border-radius:12px;overflow:hidden;margin-bottom:.65rem}
+.faq-q{width:100%;text-align:left;padding:.9rem 1.1rem;font-size:.9rem;font-weight:600;color:var(--forest);background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--jade);flex-shrink:0}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{display:none;padding:0 1.1rem .95rem;font-size:.84rem;color:#555;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+.cta-sec{background:linear-gradient(135deg,var(--forest),var(--fern));padding:5rem 1.5rem;text-align:center}
+.cta-sec h2{font-size:clamp(1.6rem,4vw,2.5rem);color:#fff;margin-bottom:.85rem}
+.cta-sec p{font-size:.98rem;color:rgba(255,255,255,.78);max-width:500px;margin:0 auto 1.7rem}
+.cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+
+footer{background:#060a07;padding:4rem 1.5rem 2rem;color:rgba(255,255,255,.62)}
+.ft-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+@media(max-width:768px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+.ft-brand{font-size:1.1rem;color:var(--gold);font-weight:700;margin-bottom:.65rem}
+.ft-col h4{font-size:.86rem;color:var(--gold);margin-bottom:.65rem;font-weight:700}
+.ft-col a,.ft-col p{display:block;font-size:.75rem;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:.3rem;transition:color .2s}
+.ft-col a:hover{color:var(--gold-lt)}
+.soc{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;text-decoration:none;color:#fff}
+.soc-fb{background:#1877f2}.soc-yt{background:#ff0000}
+.ft-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.65rem}
+.ft-bottom p,.ft-bottom a{font-size:.7rem;color:rgba(255,255,255,.28);text-decoration:none}
+#btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--forest);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;transition:opacity .3s;z-index:50;font-family:inherit}
+#btt.vis{opacity:1}
+@media(max-width:768px){section{padding:3rem 1rem}}
+@keyframes wxpulse{0%,100%{opacity:1}50%{opacity:.4}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="#">🏔 Tetulia Travel</a>
+  <a class="nav-link active" href="#home">Home</a>
+  <a class="nav-link" href="#about">About</a>
+  <a class="nav-link" href="#attractions">Attractions</a>
+  <a class="nav-link" href="#gallery">Gallery</a>
+  <div class="nav-drop" id="photoDrop">
+    <button class="nav-drop-btn" onclick="toggleDrop()">📷 Photography ▾</button>
+    <div class="drop-menu">
+      <a class="drop-item" href="#workshop"><div class="drop-ico">🎓</div><div class="drop-txt"><strong>Workshop</strong><small>5-day intensive</small></div></a>
+      <a class="drop-item" href="#one-on-one"><div class="drop-ico">🤝</div><div class="drop-txt"><strong>One-on-One</strong><small>Personal mentoring</small></div></a>
+      <div class="drop-sep"></div>
+      <a class="drop-item" href="#mentor"><div class="drop-ico">🌟</div><div class="drop-txt"><strong>Mentor</strong><small>About the photographer</small></div></a>
+      <a class="drop-item" href="#testimony"><div class="drop-ico">💬</div><div class="drop-txt"><strong>Testimony</strong><small>Student experiences</small></div></a>
+      <div class="drop-sep"></div>
+      <a class="drop-item" href="#profile"><div class="drop-ico">👤</div><div class="drop-txt"><strong>Profile</strong><small>Photographer's journey</small></div></a>
+      <a class="drop-item" href="#collage"><div class="drop-ico">🖼</div><div class="drop-txt"><strong>Photo Collage</strong><small>Visual portfolio</small></div></a>
+    </div>
+  </div>
+  <a class="nav-link" href="#travel-info">Travel Info</a>
+  <a class="nav-link" href="#live-map">🗺 Map</a>
+  <a class="nav-link" href="#facebook">Facebook</a>
+  <a class="nav-link" href="#youtube">YouTube</a>
+  <a class="nav-link" href="#faq">FAQ</a>
+  <a class="nav-link" href="#eco-safar">🌿 Eco Safar</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-badge">🌄 Bangladesh's Northernmost District</div>
+  <h1>Panchagarh <em>&amp;</em><br>Tetulia</h1>
+  <p class="hero-sub">Where the Himalayas greet you at dawn — see Kanchenjunga rise over Bangladesh's last horizon</p>
+  <div class="hero-btns">
+    <a href="#attractions" class="btn btn-gold">Explore Attractions</a>
+    <a href="#travel-info" class="btn btn-outline">Plan My Trip</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><span class="val">5</span><span class="lbl">Upazilas</span></div>
+    <div class="hstat-div"></div>
+    <div class="hstat"><span class="val">1,423</span><span class="lbl">sq km</span></div>
+    <div class="hstat-div"></div>
+    <div class="hstat"><span class="val">30+</span><span class="lbl">Attractions</span></div>
+    <div class="hstat-div"></div>
+    <div class="hstat"><span class="val">8,586m</span><span class="lbl">Kanchenjunga</span></div>
+  </div>
+</header>
+
+<main>
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="s-tag">✦ Destination Overview</div>
+    <h2 class="s-title">Why Visit <em>Panchagarh?</em></h2>
+    <div class="s-rule"></div>
+    <p class="s-lead">Tucked into the very tip of Bangladesh, Panchagarh is the country's northernmost district — a land of misty mornings, tea-carpeted valleys, ancient stone forts, and the singular gift of watching the world's third-highest peak rise from the plains.</p>
+    <div class="about-grid">
+      <article class="acard acard-wide"><div class="ico">🏔</div><h3>Kanchenjunga Views</h3><p>On clear winter mornings from November through February, the snow-capped peak of Kanchenjunga (8,586 m) is visible from Tetulia Dak Bungalow.</p></article>
+      <article class="acard"><div class="ico">🌿</div><h3>Tea Gardens</h3><p>Northern Bangladesh's sprawling tea estates create a patchwork of emerald green across the landscape.</p></article>
+      <article class="acard"><div class="ico">🪨</div><h3>Stone Rivers</h3><p>The Mahananda, Karatoa, and Talma rivers carry countless coloured stones, supporting a unique stone-collection economy.</p></article>
+      <article class="acard"><div class="ico">🌐</div><h3>Bangalbandha Land Port</h3><p>Bangladesh's only land port connecting to India, Nepal, and Bhutan simultaneously.</p></article>
+      <article class="acard"><div class="ico">🏛</div><h3>Ancient Heritage</h3><p>Bitorgarh Fort — Bangladesh's largest archaeological site — along with ancient temples dot the landscape.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section id="attractions" class="s-alt">
+  <div class="inner">
+    <div class="s-tag">✦ Top Attractions</div>
+    <h2 class="s-title">Must-Visit <em>Places</em></h2>
+    <div class="s-rule"></div>
+    <div class="attr-list">
+      <article class="attr"><div class="attr-img" style="background:linear-gradient(155deg,#0a190f,#2d6a4f)">🏠</div><div class="attr-body"><div class="badges"><span class="badge b-nat">Nature</span><span class="badge b-his">Heritage</span></div><h3>Tetulia Dak Bungalow</h3><p>A British-era rest house on the Mahananda riverbank. Winter dawns here are magical — Kanchenjunga emerges from the mist.</p><div class="attr-meta"><span>📍 Tetulia</span><span>🎟 Free</span><span>⭐ Nov–Feb</span></div></div></article>
+      <article class="attr"><div class="attr-img" style="background:linear-gradient(155deg,#4a3300,#d4a017)">🏰</div><div class="attr-body"><div class="badges"><span class="badge b-his">Archaeology</span></div><h3>Bitorgarh Fort</h3><p>Bangladesh's largest ancient fortified city, spanning roughly 25 square kilometres with ancient temples, moats, and earthen ramparts.</p><div class="attr-meta"><span>📍 Panchagarh Sadar</span><span>🏛 Archaeological</span></div></div></article>
+      <article class="attr"><div class="attr-img" style="background:linear-gradient(155deg,#023e8a,#0096c7)">🌍</div><div class="attr-body"><div class="badges"><span class="badge b-bor">Land Border</span></div><h3>Bangalbandha Zero Point</h3><p>The northernmost tip of Bangladesh where borders of Bangladesh, India, and Nepal converge.</p><div class="attr-meta"><span>📍 Tetulia</span><span>🌏 Tri-Nation</span></div></div></article>
+      <article class="attr"><div class="attr-img" style="background:linear-gradient(155deg,#1b4332,#52b788)">🍃</div><div class="attr-body"><div class="badges"><span class="badge b-tea">Agri-Tourism</span></div><h3>Panchagarh Tea Gardens</h3><p>Walk through rows of clipped green bushes, watch tea-pickers at work, and sip freshly brewed local tea.</p><div class="attr-meta"><span>📍 Panchagarh</span><span>🍃 Oct–Mar best</span></div></div></article>
+      <article class="attr"><div class="attr-img" style="background:linear-gradient(155deg,#0077b6,#48cae4)">🌊</div><div class="attr-body"><div class="badges"><span class="badge b-wat">River</span></div><h3>Mahananda River &amp; Stone Beaches</h3><p>Crystal-clear Mahananda tumbles from the Himalayas, depositing coloured stones.</p><div class="attr-meta"><span>📍 Tetulia</span><span>🪨 Stone collecting</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="inner">
+    <div class="gal-wrap">
+      <div>
+        <div class="s-tag">✦ Photo Gallery</div>
+        <h2 class="s-title">Panchagarh in <em>Pictures</em></h2>
+        <div class="s-rule"></div>
+        <div class="gal-grid">
+          <div class="g-item g-wide"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1a4731"/><rect y="105" width="400" height="95" fill="#0d1f12"/><polygon points="0,105 70,45 130,75 200,22 270,55 330,30 400,58 400,105" fill="#2d6a4f"/><polygon points="200,22 230,58 175,62 162,54" fill="#f5f5f5" opacity=".95"/></svg><div class="g-lbl">Kanchenjunga at Dawn</div></div>
+          <div class="g-item"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#52b788"/><rect width="40" height="160" fill="#2d6a4f"/><rect x="50" width="40" height="180" fill="#40916c"/><rect x="100" width="40" height="140" fill="#52b788"/><rect y="160" width="200" height="40" fill="#1a4731"/></svg><div class="g-lbl">Tea Gardens</div></div>
+          <div class="g-item"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#b7e4c7"/><rect y="130" width="200" height="70" fill="#74c69d"/><rect x="60" y="80" width="80" height="60" fill="#8B6914"/><polygon points="100,25 30,62 170,62" fill="#3d2b08"/></svg><div class="g-lbl">Tetulia Dak Bungalow</div></div>
+          <div class="g-item"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#90e0ef"/><polygon points="0,120 25,105 50,115 80,100 110,112 140,95 170,110 200,98 200,120" fill="#0077b6"/></svg><div class="g-lbl">Mahananda River</div></div>
+          <div class="g-item"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#d4a017" opacity=".3"/><rect x="40" y="65" width="120" height="65" fill="#b5860a"/><polygon points="100,5 40,24 160,24" fill="#4a3300"/></svg><div class="g-lbl">Bitorgarh Fort</div></div>
+          <div class="g-item"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#023e8a"/><rect width="200" height="100" fill="#0077b6"/><text x="100" y="104" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">Zero Point</text></svg><div class="g-lbl">Bangalbandha</div></div>
+        </div>
+      </div>
+      <aside class="ws-sidebar">
+        <div class="ws-head">
+          <div class="ws-eyebrow">✦ One-on-One</div>
+          <div class="ws-title">Photography<br>Workshop</div>
+          <div class="ws-sub">Panchagarh &amp; Beyond</div>
+        </div>
+        <nav class="ws-nav">
+          <a class="ws-lnk" href="#workshop"><div class="ws-ico">🎓</div><div><span class="ws-ln">Workshop</span><span class="ws-ld">5-day intensive</span></div><span class="ws-arr">›</span></a>
+          <a class="ws-lnk" href="#one-on-one"><div class="ws-ico">🤝</div><div><span class="ws-ln">One-on-One</span><span class="ws-ld">Personal mentoring</span></div><span class="ws-arr">›</span></a>
+          <a class="ws-lnk" href="#mentor"><div class="ws-ico">🌟</div><div><span class="ws-ln">Mentor</span><span class="ws-ld">About the photographer</span></div><span class="ws-arr">›</span></a>
+          <a class="ws-lnk" href="#testimony"><div class="ws-ico">💬</div><div><span class="ws-ln">Testimony</span><span class="ws-ld">Student experiences</span></div><span class="ws-arr">›</span></a>
+        </nav>
+        <div class="ws-cta-wrap">
+          <a class="ws-cta" href="#workshop">Apply for Workshop →</a>
+          <div class="ws-cta-note">Limited seats · Book 3 months ahead</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOP -->
+<section id="workshop" class="s-dark">
+  <div class="inner">
+    <div class="s-tag s-tag-lt">✦ Photography Programme</div>
+    <h2 class="s-title s-title-lt">Photography <em>Workshop</em></h2>
+    <div class="s-rule"></div>
+    <div class="ws-cards">
+      <div class="wsc wsc-hl"><h4>🎯 About</h4><p>A 5-day immersive photography programme set in Panchagarh's extraordinary landscapes.</p></div>
+      <div class="wsc"><h4>📋 What You Learn</h4><ul><li>Composition &amp; storytelling</li><li>Golden hour &amp; fog light</li><li>Documentary &amp; portrait</li><li>Post-processing workflow</li></ul></div>
+      <div class="wsc"><h4>📅 Details</h4><ul><li>Duration: 5 days · 4 nights</li><li>Batch size: 1–4 students</li><li>Season: November–February</li><li>Includes: transport &amp; meals</li></ul></div>
+      <div class="wsc"><h4>🏆 Take Home</h4><ul><li>Curated personal portfolio</li><li>Certificate of completion</li><li>Lifetime mentor access</li><li>Photo book of the trip</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-ON-ONE -->
+<section id="one-on-one" class="s-alt">
+  <div class="inner">
+    <div class="s-tag">✦ Personal Mentoring</div>
+    <h2 class="s-title">One-on-One <em>Photography</em></h2>
+    <div class="s-rule"></div>
+    <div class="oo-steps">
+      <div class="oo-card"><div class="oo-num">1</div><div class="oo-ico">📞</div><h4>Discovery Call</h4><p>We learn your goals and vision before crafting your personalised itinerary.</p></div>
+      <div class="oo-card"><div class="oo-num">2</div><div class="oo-ico">🗺</div><h4>Custom Itinerary</h4><p>Designed around your style — landscape, portrait, street, or documentary.</p></div>
+      <div class="oo-card"><div class="oo-num">3</div><div class="oo-ico">📷</div><h4>Field Sessions</h4><p>Shoot alongside the mentor at dawn at Tetulia and golden hour at tea gardens.</p></div>
+      <div class="oo-card"><div class="oo-num">4</div><div class="oo-ico">🖥</div><h4>Review &amp; Edit</h4><p>Daily image review sessions, live editing walkthroughs.</p></div>
+      <div class="oo-card"><div class="oo-num">5</div><div class="oo-ico">🏅</div><h4>Portfolio Build</h4><p>Leave with a curated, print-ready portfolio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section id="mentor">
+  <div class="inner">
+    <div class="mentor-wrap">
+      <div>
+        <div class="mentor-portrait"><div><span class="mp-icon">📷</span><div class="mp-name">The Mentor</div><div class="mp-lbl">DOCUMENTARY PHOTOGRAPHER</div></div></div>
+        <div class="mentor-awards"><span class="mchip">World Press Photo</span><span class="mchip">TPOTY Winner</span><span class="mchip">100+ Awards</span><span class="mchip">TIME Magazine</span></div>
+      </div>
+      <div>
+        <div class="s-tag">✦ Your Guide</div>
+        <h2 class="s-title">Meet the <em>Mentor</em></h2>
+        <div class="s-rule"></div>
+        <p class="mentor-bio">One of Bangladesh's most celebrated documentary photographers, featured in <strong>TIME, National Geographic, The Guardian,</strong> and publications across six continents.<br><br>With over <strong>100 international awards</strong> including World Press Photo and Travel Photographer of the Year.</p>
+        <div class="mentor-stats">
+          <div class="msbox"><span class="msv">100+</span><span class="msl">Int'l Awards</span></div>
+          <div class="msbox"><span class="msv">20+</span><span class="msl">Years Exp.</span></div>
+          <div class="msbox"><span class="msv">500+</span><span class="msl">Students</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONY -->
+<section id="testimony" class="s-alt">
+  <div class="inner">
+    <div class="s-tag">✦ Student Voices</div>
+    <h2 class="s-title">What Students <em>Say</em></h2>
+    <div class="s-rule"></div>
+    <div class="testi-grid">
+      <article class="tcard"><div class="t-stars">★★★★★</div><p class="t-quote">"The workshop in Tetulia completely changed how I see light. Watching Kanchenjunga at dawn with the mentor — I will carry that forever."</p><div class="t-person"><div class="t-ava" style="background:#1a4731">RA</div><div><div class="t-name">Rafia Ahmed</div><div class="t-meta">Dhaka · 2024</div></div></div></article>
+      <article class="tcard"><div class="t-stars">★★★★★</div><p class="t-quote">"One-on-one means the mentor's full attention is on you. My photography improved more in 5 days than in 3 years."</p><div class="t-person"><div class="t-ava" style="background:#c9963a">KM</div><div><div class="t-name">Karim Mahmud</div><div class="t-meta">Chattogram · 2024</div></div></div></article>
+      <article class="tcard"><div class="t-stars">★★★★★</div><p class="t-quote">"Not just photography — a lesson in patience, empathy, and storytelling. The mentor's philosophy goes beyond the camera."</p><div class="t-person"><div class="t-ava" style="background:#2d6a4f">SH</div><div><div class="t-name">Sadia Hossain</div><div class="t-meta">Rajshahi · 2023</div></div></div></article>
+      <article class="tcard"><div class="t-stars">★★★★★</div><p class="t-quote">"The portfolio I built got me into my first international exhibition. I owe that to the mentor's guidance."</p><div class="t-person"><div class="t-ava" style="background:#185fa5">TI</div><div><div class="t-name">Tanvir Islam</div><div class="t-meta">Sylhet · 2023</div></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="inner">
+    <div class="prof-layout">
+      <div class="prof-visual">
+        <div class="prof-ava">P</div>
+        <div class="prof-name">The Photographer</div>
+        <div class="prof-tag">DOCUMENTARY · HUMANITARIAN · EDUCATOR</div>
+        <div class="prof-div"></div>
+        <div class="prof-quote">"Photography is not about cameras. It is about light, empathy, and the courage to look honestly at the world."</div>
+        <div class="prof-qattr">— Workshop Philosophy</div>
+      </div>
+      <div>
+        <div class="s-tag">✦ Photography Profile</div>
+        <h2 class="s-title">The <em>Profile</em></h2>
+        <div class="s-rule"></div>
+        <p style="font-size:.86rem;color:#444;line-height:1.8;margin-bottom:1rem">A documentary photographer capturing the human condition across Bangladesh and beyond.</p>
+        <div class="pubs"><span class="pub">TIME Magazine</span><span class="pub">National Geographic</span><span class="pub">The Guardian</span><span class="pub">BBC</span><span class="pub">Reuters</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAGE -->
+<section id="collage" class="s-dark">
+  <div class="inner">
+    <div class="s-tag s-tag-lt">✦ Visual Portfolio</div>
+    <h2 class="s-title s-title-lt">Mentor Photo <em>Collage</em></h2>
+    <div class="s-rule"></div>
+    <div class="collage-grid">
+      <div class="coll coll-tall"><svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="400" fill="#1a4731"/><polygon points="0,210 40,120 80,155 110,70 150,130 175,90 200,115 200,210" fill="#2d6a4f"/><polygon points="110,70 130,140 90,145 80,135" fill="#f5f5f5" opacity=".95"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Kanchenjunga at First Light</div></div>
+      <div class="coll coll-wide"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#40916c"/><rect width="80" height="140" fill="#2d6a4f"/><rect x="90" width="80" height="160" fill="#52b788"/><rect x="180" width="80" height="130" fill="#40916c"/><rect x="270" width="80" height="155" fill="#2d6a4f"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Emerald Tea Gardens</div></div>
+      <div class="coll"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#90e0ef"/><polygon points="0,110 30,98 60,108 90,95 120,105 150,92 180,102 200,94 200,110" fill="#0077b6"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Mahananda River</div></div>
+      <div class="coll"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#f4a261"/><circle cx="100" cy="70" r="45" fill="#ffb347"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Village Portrait</div></div>
+      <div class="coll"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#b5860a" opacity=".4"/><rect x="30" y="60" width="140" height="70" fill="#d4a017"/><polygon points="100,10 35,44 165,44" fill="#5a3a00"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Bitorgarh Fort</div></div>
+      <div class="coll"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#cde8f5"/><polygon points="0,120 30,85 60,100 100,70 140,95 170,75 200,90 200,120" fill="#2d6a4f" opacity=".6"/></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Misty Morning</div></div>
+      <div class="coll coll-wide"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1a5276"/><rect width="6" height="200" fill="#f4c842"/><rect x="394" width="6" height="200" fill="#138d75"/><text x="200" y="95" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">ZERO POINT</text></svg><div class="coll-ov"><span class="coll-ov-ico">🔍</span></div><div class="coll-cap">Bangalbandha</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL INFO -->
+<section id="travel-info" class="s-alt">
+  <div class="inner">
+    <div class="s-tag">✦ Traveller's Guide</div>
+    <h2 class="s-title">How to <em>Get There</em></h2>
+    <div class="s-rule"></div>
+    <div class="ti-grid">
+      <div class="tic" style="grid-column:1/-1;padding:0;overflow:hidden">
+        <div style="padding:.85rem 1.1rem;background:var(--evergreen);display:flex;align-items:center;gap:.6rem">
+          <span>✈️</span><h4 style="color:#fff;font-size:.82rem;font-weight:700;margin:0">বিমান রুট, সময়সূচি ও ভাড়া</h4>
+        </div>
+        <div style="display:flex;border-bottom:1px solid #eee;background:#fafafa">
+          <button class="route-tab-btn active" id="rtab-dom" onclick="switchRouteTab('dom')">🇧🇩 দেশী রুট</button>
+          <button class="route-tab-btn" id="rtab-intl" onclick="switchRouteTab('intl')">🌏 আন্তর্জাতিক রুট</button>
+        </div>
+        <div id="tab-dom" style="padding:.85rem 1rem">
+          <p style="font-size:.72rem;color:#888;margin-bottom:.7rem">নিকটতম: <strong>Saidpur Airport (SPD)</strong> — Panchagarh থেকে ~৯০ কিমি</p>
+          <div style="overflow-x:auto"><table class="rtable"><thead><tr style="background:#f0f7f2"><th>রুট</th><th>এয়ারলাইন</th><th>সময়</th><th>ফ্লাইট</th><th style="text-align:right">ভাড়া (BDT)</th></tr></thead><tbody id="dom-tbody"></tbody></table></div>
+          <p style="font-size:.66rem;color:#aaa;margin-top:.5rem">* আনুমানিক ভাড়া। Saidpur → Panchagarh ~১.৫ ঘণ্টা।</p>
+        </div>
+        <div id="tab-intl" style="padding:.85rem 1rem;display:none">
+          <p style="font-size:.72rem;color:#888;margin-bottom:.7rem">গেটওয়ে: <strong>Hazrat Shahjalal Intl Airport (DAC), Dhaka</strong></p>
+          <div style="overflow-x:auto"><table class="rtable"><thead><tr style="background:#f0f5ff"><th>রুট</th><th>এয়ারলাইন</th><th>সময়</th><th>স্টপ</th><th style="text-align:right">ভাড়া (USD)</th></tr></thead><tbody id="intl-tbody"></tbody></table></div>
+          <p style="font-size:.66rem;color:#aaa;margin-top:.5rem">* Economy class আনুমানিক ভাড়া।</p>
+        </div>
+      </div>
+      <div class="tic"><h4>🚌 স্থলপথে</h4><ul><li>Dhaka → Panchagarh: ৮–১০ ঘণ্টা</li><li>Hanif, Shyamoli, Nabil Express</li><li>Panchagarh Express ট্রেন</li><li>Bogura থেকে: ৩ ঘণ্টা</li></ul></div>
+      <div class="tic"><h4>🏨 Where to Stay</h4><ul><li>Panchagarh Circuit House</li><li>Tetulia Dak Bungalow</li><li>Hotel Sugandha</li><li>DC Rest House</li></ul></div>
+      <div class="tic"><h4>🍽 Local Food</h4><ul><li>Panchagarh mishti</li><li>River fish curry</li><li>Bharta-bhat</li><li>Fresh local tea</li></ul></div>
+      <div class="tic"><h4>📅 Best Time</h4><ul><li>Nov–Feb: Kanchenjunga views</li><li>October: Tea picking</li><li>May: 🎣 মাছ ধরার মৌসুম</li><li>Avoid: July–Aug floods</li></ul></div>
+      <div class="tic"><h4>💡 Travel Tips</h4><ul><li>Book Dak Bungalow early</li><li>Carry warm layers (8–12°C)</li><li>Hire guide for Bitorgarh</li><li>Carry cash — few ATMs</li></ul></div>
+      <div class="tic"><h4>📞 Emergency</h4><ul><li>Tourist Police: 01769-660099</li><li>DC Office: 0568-61033</li><li>Fire Service: 199</li><li>Police: 999</li></ul></div>
+    </div>
+
+    <!-- WEATHER -->
+    <h4 style="font-size:.78rem;font-weight:700;color:var(--forest);letter-spacing:1px;text-transform:uppercase;margin-top:2.5rem;margin-bottom:1rem">Monthly Temperature Overview</h4>
+    <div id="wth-simple"></div>
+  </div>
+</section>
+
+<!-- FACEBOOK -->
+<section id="facebook">
+  <div class="inner">
+    <div class="s-tag">✦ Social Media</div>
+    <h2 class="s-title">Our Facebook <em>Page</em></h2>
+    <div class="s-rule"></div>
+    <div class="fb-box">
+      <div class="fb-cov"><h2>🏔 Panchagarh &amp; Tetulia Travel</h2></div>
+      <div class="fb-prof">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:.65rem">
+          <div class="fb-ava">P&T</div>
+          <div style="display:flex;gap:.4rem;padding-top:.65rem">
+            <button class="fb-btn fb-like">👍 Like</button>
+            <button class="fb-btn fb-follow">+ Follow</button>
+            <button class="fb-btn fb-share">↗ Share</button>
+          </div>
+        </div>
+        <div style="font-size:1.05rem;font-weight:700;color:#1c1e21">Panchagarh Tetulia Travel Guide</div>
+        <div style="font-size:.77rem;color:#65676b">Travel &amp; Tourism · Official Page</div>
+        <div style="display:flex;gap:1.3rem;margin:.6rem 0">
+          <div><strong style="display:block;font-weight:700;color:#1c1e21">52,400</strong><span style="font-size:.72rem;color:#65676b">Likes</span></div>
+          <div><strong style="display:block;font-weight:700;color:#1c1e21">57,800</strong><span style="font-size:.72rem;color:#65676b">Followers</span></div>
+          <div><strong style="display:block;font-weight:700;color:#1c1e21">4.9 ★</strong><span style="font-size:.72rem;color:#65676b">Rating</span></div>
+        </div>
+        <div style="display:flex;border-top:1px solid #e4e6eb;margin-top:.65rem;overflow-x:auto">
+          <button class="fb-tab active" onclick="fbTab(this)">Posts</button>
+          <button class="fb-tab" onclick="fbTab(this)">About</button>
+          <button class="fb-tab" onclick="fbTab(this)">Photos</button>
+          <button class="fb-tab" onclick="fbTab(this)">Videos</button>
+        </div>
+      </div>
+      <div style="padding:.65rem;background:#f0f2f5">
+        <div style="background:#fff;border-radius:10px;border:1px solid #dde">
+          <div style="display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--evergreen);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.75rem;font-weight:700;flex-shrink:0">P&T</div>
+            <div><div style="font-size:.82rem;font-weight:700;color:#1c1e21">Panchagarh Tetulia Travel Guide</div><div style="font-size:.68rem;color:#65676b">2 hours ago</div></div>
+          </div>
+          <div style="padding:0 .9rem .65rem;font-size:.8rem;color:#1c1e21;line-height:1.55">🏔 Kanchenjunga from Tetulia this morning! #Panchagarh #Tetulia #Kanchenjunga</div>
+          <div style="height:130px;background:linear-gradient(135deg,#0d2b1a,#2d6a4f);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:.82rem">📷 Kanchenjunga · Tetulia</div>
+          <div style="padding:.35rem .9rem;font-size:.7rem;color:#65676b;border-bottom:1px solid #e4e6eb">❤️ 2,341 reactions · 134 comments</div>
+          <div style="display:flex">
+            <button style="flex:1;padding:.45rem;text-align:center;font-size:.77rem;font-weight:600;color:#65676b;cursor:pointer;background:none;border:none;font-family:inherit">👍 Like</button>
+            <button style="flex:1;padding:.45rem;text-align:center;font-size:.77rem;font-weight:600;color:#65676b;cursor:pointer;background:none;border:none;font-family:inherit">💬 Comment</button>
+            <button style="flex:1;padding:.45rem;text-align:center;font-size:.77rem;font-weight:600;color:#65676b;cursor:pointer;background:none;border:none;font-family:inherit">↗ Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="youtube" class="s-alt">
+  <div class="inner">
+    <div class="s-tag">✦ Video Content</div>
+    <h2 class="s-title">YouTube <em>Channel</em></h2>
+    <div class="s-rule"></div>
+    <div class="yt-box">
+      <div style="background:#0f0f0f;padding:.75rem 1rem;display:flex;align-items:center;gap:1rem;border-bottom:1px solid #272727">
+        <div style="display:flex;align-items:center;gap:.4rem;color:#fff;font-size:.85rem;font-weight:700">
+          <div style="background:#ff0000;width:28px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center"><div class="yt-play" style="width:auto;height:auto;background:none;border-radius:0"></div></div>YouTube
+        </div>
+        <input style="flex:1;background:#121212;border:1px solid #333;border-radius:22px;color:#fff;font-size:.78rem;padding:.35rem .85rem;outline:none;font-family:inherit" value="Panchagarh Tetulia Travel" readonly/>
+      </div>
+      <div style="height:115px;background:linear-gradient(155deg,#081309,#1a4731 50%,#52b788 100%);display:flex;align-items:center;justify-content:center;text-align:center">
+        <div><div style="font-size:1.25rem;font-weight:700;color:#fff">🏔 Panchagarh &amp; Tetulia Travel</div><div style="font-size:.68rem;color:rgba(255,255,255,.6);letter-spacing:2px;margin-top:.2rem">SEE KANCHENJUNGA FROM BANGLADESH</div></div>
+      </div>
+      <div style="background:#0f0f0f;display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;border-bottom:1px solid #272727">
+        <div style="width:56px;height:56px;border-radius:50%;border:2px solid #333;background:var(--evergreen);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.95rem;font-weight:700;flex-shrink:0">P&T</div>
+        <div style="flex:1"><div style="font-size:.92rem;font-weight:700;color:#fff">Panchagarh Tetulia Travel</div><div style="font-size:.7rem;color:#aaa">42,600 subscribers · 168 videos</div></div>
+        <button class="yt-sub">Subscribe</button>
+      </div>
+      <div style="display:flex;border-bottom:1px solid #272727;background:#0f0f0f;overflow-x:auto">
+        <button class="yt-tab active" onclick="ytTab(this)">Videos</button>
+        <button class="yt-tab" onclick="ytTab(this)">Shorts</button>
+        <button class="yt-tab" onclick="ytTab(this)">Playlists</button>
+        <button class="yt-tab" onclick="ytTab(this)">About</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;padding:.85rem;background:#0f0f0f" id="yt-vids"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="inner">
+    <div class="s-tag">✦ FAQ</div>
+    <h2 class="s-title">Common <em>Questions</em></h2>
+    <div class="s-rule"></div>
+    <div id="faq-list" style="max-width:740px"></div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="live-map" class="map-section">
+  <div style="max-width:1100px;margin:0 auto 2rem">
+    <div class="s-tag s-tag-lt">✦ Interactive Map</div>
+    <h2 class="s-title s-title-lt">Explore <em>Locations</em></h2>
+    <div class="s-rule"></div>
+  </div>
+  <div class="map-layout">
+    <div>
+      <div class="map-tabs" id="map-tabs"></div>
+      <div class="map-frame-wrap">
+        <iframe id="main-map" src="" allowfullscreen loading="lazy" title="Map"></iframe>
+      </div>
+      <div style="background:rgba(212,160,23,.1);border:.5px solid rgba(212,160,23,.25);border-radius:12px;padding:.85rem 1rem;display:flex;align-items:center;gap:.7rem;margin-top:.5rem">
+        <span style="font-size:1.15rem">📍</span>
+        <div><strong id="map-place-title" style="color:var(--gold-lt);display:block;font-size:.78rem;margin-bottom:.12rem">Tetulia</strong><span id="map-place-info" style="font-size:.75rem;color:rgba(255,255,255,.65)">Loading...</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem" id="map-cards"></div>
+  </div>
+</section>
+
+<!-- ECO SAFAR -->
+<section id="eco-safar" style="background:#0b1a0e;padding:5rem 1.5rem">
+  <div class="inner">
+    <div class="s-tag s-tag-lt">✦ Eco Tourism Campaign</div>
+    <h2 class="s-title s-title-lt">ESDO <em>Eco Safar</em></h2>
+    <div class="s-rule"></div>
+    <div id="eco-poster" style="max-width:700px;margin:0 auto;box-shadow:0 50px 120px rgba(0,0,0,.7);border-radius:16px;overflow:hidden"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <h2>Start Your Adventure Today</h2>
+  <p>Panchagarh and Tetulia are waiting — Himalayan horizons, ancient forts, tea gardens, and world-class photography workshops.</p>
+  <div class="cta-btns"><a href="#travel-info" class="btn btn-gold">📅 Plan My Trip</a><a href="#workshop" class="btn btn-outline">📷 Join Workshop</a></div>
+</section>
+
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand">🏔 Panchagarh Tetulia Travel</div>
+      <p style="font-size:.78rem;line-height:1.7;margin-bottom:.85rem;color:rgba(255,255,255,.5)">Your complete guide to Bangladesh's northernmost district.</p>
+      <div style="display:flex;gap:.5rem;margin-top:.65rem"><a class="soc soc-fb" href="#">f</a><a class="soc soc-yt" href="#">▶</a></div>
+    </div>
+    <div class="ft-col"><h4>Destinations</h4><a href="#attractions">Tetulia Dak Bungalow</a><a href="#attractions">Bangalbandha Zero Point</a><a href="#attractions">Bitorgarh Fort</a><a href="#live-map">🗺 Live Map</a></div>
+    <div class="ft-col"><h4>Photography</h4><a href="#workshop">Workshop</a><a href="#one-on-one">One-on-One</a><a href="#mentor">Mentor</a><a href="#testimony">Testimony</a></div>
+    <div class="ft-col"><h4>Contact</h4><p>📞 01700-000000</p><p>✉ info@tetulia.travel</p><p>📍 Panchagarh, Rangpur</p></div>
+  </div>
+  <div class="ft-bottom"><p>© 2025 Panchagarh Tetulia Travel Guide.</p><nav style="display:flex;gap:.85rem"><a href="#">Privacy</a><a href="#">Terms</a></nav></div>
+</footer>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── UTILS
+function qs(s,c){return(c||document).querySelector(s)}
+function qsa(s,c){return[...(c||document).querySelectorAll(s)]}
+
+// ── NAV
+function toggleDrop(){qs('#photoDrop').classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('#photoDrop'))qs('#photoDrop').classList.remove('open')})
+window.addEventListener('scroll',()=>qs('#btt').classList.toggle('vis',scrollY>400))
+
+// ── FAQ
+const FAQS=[
+  ['What is the best time to visit Panchagarh?','November to February is prime. Winter mornings offer clear Kanchenjunga views. October is ideal for tea-picking. May is great for fishing. Avoid July–August floods.'],
+  ['Can you really see Kanchenjunga from Bangladesh?','Yes! On clear winter mornings, Kanchenjunga (8,586 m) is visible from Tetulia Dak Bungalow just after sunrise.'],
+  ['How do I travel from Dhaka to Panchagarh?','Take an overnight bus (8–10 hrs) via Hanif, Shyamoli, or Nabil. The Panchagarh Express train is also available.'],
+  ['How do I apply for the Photography Workshop?','Contact via the form below. Workshops run November–February, limited to 1–4 participants. Book 2–3 months ahead.'],
+  ['Is the One-on-One programme for beginners?','Absolutely. Tailored from complete beginners to advanced photographers.'],
+  ['Do I need a passport for Bangalbandha Zero Point?','No passport needed for the tourist viewing area. Only required if crossing into India.'],
+];
+(function(){
+  const fl=qs('#faq-list');
+  if(!fl)return;
+  fl.innerHTML=FAQS.map(([q,a])=>`<div class="faq-item"><button class="faq-q" onclick="this.closest('.faq-item').classList.toggle('open')">${q}</button><div class="faq-a">${a}</div></div>`).join('');
+})();
+
+// ── FB/YT TABS
+function fbTab(b){qsa('.fb-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function ytTab(b){qsa('.yt-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+
+// ── YT VIDS
+(function(){
+  const el=qs('#yt-vids');
+  if(!el)return;
+  const vids=[
+    {bg:'linear-gradient(135deg,#0d2b1a,#2d6a4f)',dur:'18:32',title:'Kanchenjunga from Tetulia!',views:'1.4M views · 3 months ago'},
+    {bg:'linear-gradient(135deg,#1b4332,#52b788)',dur:'24:15',title:'Panchagarh Tea Garden Guide',views:'920K views · 5 months ago'},
+    {bg:'linear-gradient(135deg,#023e8a,#0096c7)',dur:'14:48',title:'Bangalbandha Zero Point',views:'720K views · 7 months ago'},
+    {bg:'linear-gradient(135deg,#b5860a,#f4c842)',dur:'31:00',title:'Bitorgarh Fort',views:'550K views · 1 year ago'},
+    {bg:'linear-gradient(135deg,#48cae4,#90e0ef)',dur:'22:10',title:'Mahananda Stone Beaches',views:'430K views · 1 year ago'},
+    {bg:'linear-gradient(135deg,#2d6a4f,#95d5b2)',dur:'44:22',title:'Ultimate Panchagarh Guide',views:'2.1M views · 2 years ago'},
+  ];
+  el.innerHTML=vids.map(v=>`<div style="cursor:pointer"><div class="yt-thumb"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:${v.bg}"><div style="width:32px;height:32px;background:rgba(0,0,0,.75);border-radius:50%;display:flex;align-items:center;justify-content:center"><div class="yt-play"></div></div></div><div style="position:absolute;bottom:.32rem;right:.42rem;background:rgba(0,0,0,.82);color:#fff;font-size:.65rem;font-weight:700;padding:2px 5px;border-radius:4px">${v.dur}</div></div><div style="font-size:.75rem;font-weight:500;color:#fff;line-height:1.35;margin-bottom:.2rem">${v.title}</div><div style="font-size:.66rem;color:#aaa">${v.views}</div></div>`).join('');
+})();
+
+// ── ROUTE TABLE
+(function(){
+  const domRows=[
+    ['Dhaka (DAC) → Saidpur (SPD)','Biman Bangladesh','৫০ মিনিট','BG-571 (৭:৩০ AM)','৳৩,৫০০–৫,৫০০'],
+    ['Dhaka (DAC) → Saidpur (SPD)','US-Bangla Airlines','৫০ মিনিট','BS-321 (৮:০০ AM)','৳৩,০০০–৪,৮০০'],
+    ['Dhaka (DAC) → Saidpur (SPD)','Novoair','৫০ মিনিট','VQ-901 (১০:১৫ AM)','৳২,৮০০–৪,৫০০'],
+    ['Chittagong → Dhaka → Saidpur','US-Bangla / Biman','২.৫ ঘণ্টা','সংযোগ ফ্লাইট','৳৫,০০০–৮,০০০'],
+    ['Sylhet → Dhaka → Saidpur','Biman / Novoair','৩ ঘণ্টা','সংযোগ ফ্লাইট','৳৫,৫০০–৯,০০০'],
+  ];
+  const intlRows=[
+    ['Kolkata (CCU) → Dhaka (DAC)','IndiGo / Biman','৪৫ মিনিট','নন-স্টপ','$60–130'],
+    ['Delhi (DEL) → Dhaka (DAC)','IndiGo / Air India','২ ঘণ্টা','নন-স্টপ','$90–200'],
+    ['Kathmandu (KTM) → Dhaka (DAC)','Biman / Buddha Air','১.৫ ঘণ্টা','নন-স্টপ','$80–160'],
+    ['Dubai (DXB) → Dhaka (DAC)','Emirates / Biman','৪.৫ ঘণ্টা','নন-স্টপ','$250–550'],
+    ['London (LHR) → Dhaka (DAC)','Biman / British Airways','১০–১২ ঘণ্টা','১ স্টপ','$500–1100'],
+    ['New York (JFK) → Dhaka (DAC)','Biman / Emirates','১৬–২০ ঘণ্টা','১–২ স্টপ','$750–1500'],
+    ['Singapore (SIN) → Dhaka (DAC)','Singapore Airlines','৪ ঘণ্টা','নন-স্টপ','$180–380'],
+  ];
+  function fill(id,rows){
+    const el=qs('#'+id);
+    if(!el)return;
+    el.innerHTML=rows.map((r,i)=>`<tr>${r.map((c,j)=>`<td style="padding:.45rem .6rem;${j===r.length-1?'text-align:right;color:#c9963a;font-weight:700':'color:'+(j===1?'#0f6e56':'#333')}">${c}</td>`).join('')}</tr>`).join('');
+  }
+  fill('dom-tbody',domRows);
+  fill('intl-tbody',intlRows);
+})();
+function switchRouteTab(t){
+  qs('#tab-dom').style.display=t==='dom'?'block':'none';
+  qs('#tab-intl').style.display=t==='intl'?'block':'none';
+  qs('#rtab-dom').classList.toggle('active',t==='dom');
+  qs('#rtab-intl').classList.toggle('active',t==='intl');
+}
+
+// ── WEATHER SIMPLE
+(function(){
+  const el=qs('#wth-simple');
+  if(!el)return;
+  const data=[
+    {m:'January',t:12,r:10,tag:'⭐ Kanchenjunga'},
+    {m:'February',t:16,r:15,tag:'⭐ Kanchenjunga'},
+    {m:'March',t:24,r:30,tag:''},
+    {m:'April',t:30,r:50,tag:''},
+    {m:'May',t:33,r:80,tag:'🎣 মাছ ধরার মৌসুম'},
+    {m:'June',t:32,r:100,tag:'⚠ Flood risk'},
+    {m:'July',t:30,r:100,tag:'⚠ Flood risk'},
+    {m:'August',t:30,r:95,tag:''},
+    {m:'September',t:29,r:70,tag:''},
+    {m:'October',t:26,r:35,tag:'🍃 Tea picking'},
+    {m:'November',t:19,r:12,tag:'⭐ Kanchenjunga'},
+    {m:'December',t:13,r:8,tag:'❄ Coldest'},
+  ];
+  el.innerHTML=data.map(d=>`<div style="display:grid;grid-template-columns:95px 1fr 65px 165px;align-items:center;gap:.65rem;padding:.42rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.77rem"><div style="font-weight:600;color:var(--forest)">${d.m}</div><div style="background:#e8f5ee;border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;border-radius:4px;width:${d.r}%;background:${d.r>70?'#0096c7':d.r>30?'#52b788':'#1a4731'}"></div></div><div style="text-align:right;color:#666">${d.t}°C</div><div style="font-size:.66rem;color:var(--jade);font-weight:600">${d.tag}</div></div>`).join('');
+})();
+
+// ── MAP
+const MAPS=[
+  {key:'tetulia',label:'📍 Tetulia',src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57946.85!2d88.5797!3d26.3220!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3e4b80925f3d7%3A0xb4aee30af7e88888!2sTetulia%2C+Panchagarh!5e0!3m2!1sen!2sbd',title:'Tetulia, Panchagarh',info:'Northernmost upazila — famous for Kanchenjunga views.',ico:'🏠',name:'Tetulia Dak Bungalow',dist:'Tetulia Upazila',desc:'Best vantage point for Kanchenjunga on clear winter mornings.',coord:'26.3220°N · 88.6297°E'},
+  {key:'panchagarh',label:'🏙 Panchagarh',src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57831.5!2d88.5048!3d26.3330!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3e4b80925f3d7%3A0xb4aee30af7e88889!2sPanchagarh!5e0!3m2!1sen!2sbd',title:'Panchagarh Town',info:'District headquarters — main transport hub.',ico:'🏙',name:'Panchagarh Town',dist:'District HQ',desc:'Main hub with Circuit House, markets, and transport links.',coord:'26.3330°N · 88.5548°E'},
+  {key:'bangalbandha',label:'🌍 Zero Point',src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14456.2!2d88.5296!3d26.4541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3f0b0a0000001%3A0x1!2sBangalbandha!5e0!3m2!1sen!2sbd',title:'Bangalbandha Zero Point',info:'Tri-nation junction: Bangladesh, India & Nepal.',ico:'🌍',name:'Bangalbandha Zero Point',dist:'Tri-Nation Junction',desc:'Northernmost point where three countries meet.',coord:'26.4541°N · 88.5296°E'},
+  {key:'bitorgarh',label:'🏛 Bitorgarh',src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28800.5!2d88.5742!3d26.3748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3e5000000002%3A0x2!2sBitorgarh!5e0!3m2!1sen!2sbd',title:'Bitorgarh Fort',info:"Bangladesh's largest ancient fortress — 25 sq km.",ico:'🏛',name:'Bitorgarh Fort',dist:'Archaeological Site',desc:"Bangladesh's largest ancient fortress city.",coord:'26.3748°N · 88.5742°E'},
+  {key:'overview',label:'🗺 Full District',src:'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d115758.4!2d88.5543!3d26.3348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd',title:'Panchagarh District',info:"Bird's-eye view of the entire district.",ico:'🗺',name:'Full District View',dist:'Panchagarh District',desc:"Complete overview of all attractions and routes.",coord:'26.3348°N · 88.5543°E'},
+];
+let activeMapIdx=0;
+
+function buildMap(){
+  const tabs=qs('#map-tabs'),cards=qs('#map-cards'),frame=qs('#main-map');
+  if(!tabs||!cards||!frame)return;
+  tabs.innerHTML=MAPS.map((m,i)=>`<button class="map-tab${i===0?' active':''}" onclick="switchMap(${i})">${m.label}</button>`).join('');
+  cards.innerHTML=MAPS.map((m,i)=>`<div class="map-place-card${i===0?' active':''}" id="mc-${i}" onclick="switchMap(${i})"><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.38rem"><div style="width:32px;height:32px;border-radius:9px;background:rgba(212,160,23,.12);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0">${m.ico}</div><div><div style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,.9)">${m.name}</div><div style="font-size:.66rem;color:rgba(255,255,255,.35)">${m.dist}</div></div></div><div style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5">${m.desc}</div><div style="font-size:.63rem;color:rgba(82,183,136,.55);margin-top:.35rem;font-family:monospace">${m.coord}</div></div>`).join('');
+  frame.src=MAPS[0].src;
+}
+
+function switchMap(i){
+  activeMapIdx=i;
+  const m=MAPS[i],frame=qs('#main-map');
+  if(frame){frame.style.opacity='0';frame.src=m.src;}
+  qs('#map-place-title').textContent=m.title;
+  qs('#map-place-info').textContent=m.info;
+  qsa('.map-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  qsa('.map-place-card').forEach((c,j)=>c.classList.toggle('active',j===i));
+}
+
+// ── mapLoaded — called by iframe onload
+function mapLoaded(){
+  const f=qs('#main-map');
+  if(f)f.style.opacity='1';
+}
+
+// ── ECO SAFAR POSTER
+function buildEcoPoster(){
+  const el=qs('#eco-poster');
+  if(!el)return;
+
+  // HERO
+  const hero=document.createElement('div');
+  hero.style.cssText='position:relative;min-height:360px;overflow:hidden;background:linear-gradient(170deg,#061208 0%,#0d2b12 25%,#1a4731 55%,#2d7a50 80%,#4a9e68 100%)';
+
+  // sun
+  const sun=document.createElement('div');
+  sun.style.cssText='position:absolute;top:24px;right:85px;width:85px;height:85px;border-radius:50%;background:radial-gradient(circle,rgba(255,220,80,.95) 0%,rgba(240,180,40,.5) 40%,transparent 72%);z-index:2';
+  hero.appendChild(sun);
+
+  // fog
+  const fog=document.createElement('div');
+  fog.style.cssText='position:absolute;top:60px;left:0;right:0;height:55px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),rgba(255,255,255,.1),rgba(255,255,255,.07),transparent);z-index:2';
+  hero.appendChild(fog);
+
+  // SVG landscape
+  const ns='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox','0 0 700 210');
+  svg.setAttribute('preserveAspectRatio','none');
+  svg.style.cssText='position:absolute;bottom:0;left:0;width:100%;height:210px;z-index:1';
+  svg.innerHTML=`
+    <polygon points="0,210 0,110 50,72 110,98 180,44 260,78 330,30 420,64 490,32 570,60 640,37 700,54 700,210" fill="rgba(8,25,12,.82)"/>
+    <polygon points="0,210 0,130 60,105 130,122 210,88 290,112 370,78 460,104 540,80 620,108 700,90 700,210" fill="rgba(6,18,9,.93)"/>
+    <polygon points="180,44 198,70 163,74" fill="rgba(240,248,255,.9)"/>
+    <polygon points="330,30 350,60 312,64" fill="rgba(240,248,255,.93)"/>
+    <polygon points="490,32 508,57 474,60" fill="rgba(240,248,255,.87)"/>
+    <rect x="8" y="152" width="115" height="5" rx="2" fill="#3a8c5c" opacity=".7"/>
+    <rect x="14" y="160" width="98" height="4" rx="2" fill="#2d6a4f" opacity=".6"/>
+    <rect x="20" y="167" width="82" height="4" rx="2" fill="#1a4731" opacity=".5"/>
+    <rect x="558" y="148" width="122" height="5" rx="2" fill="#3a8c5c" opacity=".7"/>
+    <rect x="566" y="157" width="107" height="4" rx="2" fill="#2d6a4f" opacity=".6"/>
+    <path d="M230,182 Q300,172 370,178 Q432,184 502,172" stroke="#7dd3fc" stroke-width="3" fill="none" opacity=".5"/>
+    <g fill="rgba(28,14,4,.85)">
+      <rect x="288" y="120" width="62" height="78"/>
+      <polygon points="288,120 319,88 350,120"/>
+      <rect x="302" y="148" width="14" height="50"/>
+      <rect x="334" y="148" width="14" height="50"/>
+      <polygon points="294,132 300,122 306,132"/>
+      <polygon points="340,132 346,122 352,132"/>
+    </g>
+    <g fill="rgba(28,14,4,.78)">
+      <rect x="428" y="114" width="52" height="84"/>
+      <ellipse cx="454" cy="114" rx="15" ry="24"/>
+      <rect x="423" y="90" width="5" height="27"/>
+      <rect x="480" y="90" width="5" height="27"/>
+      <ellipse cx="425" cy="90" rx="4" ry="7"/>
+      <ellipse cx="483" cy="90" rx="4" ry="7"/>
+    </g>
+    <g fill="rgba(28,14,4,.65)">
+      <rect x="138" y="152" width="42" height="36"/>
+      <polygon points="133,152 159,130 187,152"/>
+    </g>
+    <g fill="rgba(20,10,2,.68)">
+      <circle cx="93" cy="163" r="5"/><rect x="90" y="168" width="6" height="13" rx="2"/>
+      <circle cx="107" cy="160" r="5"/><rect x="104" y="165" width="6" height="14" rx="2"/>
+    </g>`;
+  hero.appendChild(svg);
+
+  // quote
+  const quote=document.createElement('div');
+  quote.style.cssText='position:absolute;top:18px;left:0;right:0;text-align:center;z-index:5;font-size:.8rem;color:rgba(255,255,255,.85);font-style:italic;text-shadow:0 1px 8px rgba(0,0,0,.8)';
+  quote.textContent='"দেখা হয় নাই চক্ষু মেলিয়া"';
+  hero.appendChild(quote);
+
+  // hero content
+  const hc=document.createElement('div');
+  hc.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;padding:2.5rem 1.5rem 5rem';
+  hc.innerHTML=`
+    <div style="font-size:.58rem;font-weight:700;letter-spacing:3px;color:rgba(240,210,100,.85);text-transform:uppercase;margin-bottom:.5rem">An Initiative of ESDO Eco Tourism</div>
+    <div style="font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;color:#e8d080;line-height:1.05;text-shadow:0 3px 20px rgba(0,0,0,.7)">Dekha Hoi Nai</div>
+    <div style="font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;color:#e8d080;line-height:1.05;text-shadow:0 3px 20px rgba(0,0,0,.7);margin-bottom:.55rem">Chokkhu Meliya</div>
+    <div style="background:linear-gradient(90deg,#1a5c28,#2e8b45,#1a5c28);border-radius:30px;padding:.38rem 1.8rem;display:inline-block;margin-bottom:.65rem;box-shadow:0 4px 16px rgba(0,0,0,.4)">
+      <span style="font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:2px">🌿 Eco Safar</span>
+    </div>
+    <div style="font-size:clamp(.88rem,2.5vw,1.05rem);font-weight:800;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);margin-bottom:.22rem">Meet the Beauty of Northwestern Bangladesh</div>
+    <div style="font-size:.72rem;color:rgba(255,255,255,.62);font-style:italic">Where Nature, Culture, and Heritage Come Alive.</div>`;
+  hero.appendChild(hc);
+
+  // curved bottom
+  const curve=document.createElement('div');
+  curve.style.cssText='position:absolute;bottom:-1px;left:0;right:0;height:38px;z-index:6';
+  curve.innerHTML=`<svg viewBox="0 0 700 38" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:100%"><path d="M0,38 Q350,0 700,38 L700,38 L0,38 Z" fill="#f5f0e6"/></svg>`;
+  hero.appendChild(curve);
+  el.appendChild(hero);
+
+  // JOURNEY BANNER
+  const jb=document.createElement('div');
+  jb.style.cssText='background:linear-gradient(90deg,#0a2210,#1a4731,#0a2210);padding:.8rem 1.5rem;text-align:center';
+  jb.innerHTML=`<div style="font-size:.6rem;font-weight:700;letter-spacing:3px;color:rgba(240,192,96,.8);text-transform:uppercase">A Journey To</div><div style="font-size:.92rem;font-weight:700;color:#fff;margin-top:.18rem;letter-spacing:.5px">Nature &nbsp;·&nbsp; Culture &nbsp;·&nbsp; Heritage &nbsp;·&nbsp; &amp; Beyond</div>`;
+  el.appendChild(jb);
+
+  // 5 PHOTO BLOCKS
+  const pb=document.createElement('div');
+  pb.style.cssText='background:#f5f0e6;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:10px 10px 0';
+  [
+    {ico:'🍃',lbl:'Tea Gardens',bg:'linear-gradient(155deg,#1a4731,#52b788)',detail:'#2d6a4f'},
+    {ico:'🌊',lbl:'River & Nature',bg:'linear-gradient(155deg,#0077b6,#48cae4)',detail:'#0096c7'},
+    {ico:'🏛',lbl:'Heritage',bg:'linear-gradient(155deg,#6b3f00,#c9963a)',detail:'#a07030'},
+    {ico:'👗',lbl:'Culture & People',bg:'linear-gradient(155deg,#5c1b6e,#b039d4)',detail:'#8a2b9e'},
+    {ico:'🏘',lbl:'Indigenous Life',bg:'linear-gradient(155deg,#1b4f1e,#4caf50)',detail:'#2e7d32'},
+  ].forEach(p=>{
+    const d=document.createElement('div');
+    d.style.cssText=`border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:${p.bg};position:relative;display:flex;align-items:flex-end`;
+    // scene lines
+    const lines=document.createElement('div');
+    lines.style.cssText='position:absolute;inset:0;opacity:.15;background:repeating-linear-gradient(0deg,transparent,transparent 9px,rgba(255,255,255,.2) 10px)';
+    d.appendChild(lines);
+    // horizon line
+    const hl=document.createElement('div');
+    hl.style.cssText=`position:absolute;bottom:28px;left:0;right:0;height:2px;background:${p.detail};opacity:.5`;
+    d.appendChild(hl);
+    // emoji
+    const em=document.createElement('div');
+    em.style.cssText='position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:1.8rem;opacity:.4';
+    em.textContent=p.ico;
+    d.appendChild(em);
+    // label
+    const lb=document.createElement('div');
+    lb.style.cssText='width:100%;background:linear-gradient(transparent,rgba(0,0,0,.72));padding:.3rem .3rem .38rem;position:relative;z-index:2;text-align:center';
+    lb.innerHTML=`<span style="font-size:.55rem;font-weight:700;color:#fff;letter-spacing:.4px">${p.lbl}</span>`;
+    d.appendChild(lb);
+    pb.appendChild(d);
+  });
+  el.appendChild(pb);
+
+  // TOUR PACKAGE
+  const tp=document.createElement('div');
+  tp.style.cssText='background:#f5f0e6;padding:10px';
+  tp.innerHTML=`
+    <div style="background:linear-gradient(135deg,#0d2b12,#1a5c28,#0d2b12);border-radius:14px;padding:1.1rem 1.2rem;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-18px;right:-18px;width:85px;height:85px;border-radius:50%;background:rgba(201,150,58,.1)"></div>
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem">
+        <div style="background:#c9963a;border-radius:10px;padding:.38rem .65rem;text-align:center">
+          <div style="font-size:.5rem;font-weight:700;color:rgba(10,34,16,.7);letter-spacing:1.5px;text-transform:uppercase">TOUR</div>
+          <div style="font-size:.82rem;font-weight:900;color:#0a2210">PACKAGE</div>
+        </div>
+        <div>
+          <div style="font-size:1.45rem;font-weight:900;color:#fff;line-height:1">04 <span style="font-size:.82rem;color:rgba(255,255,255,.65)">DAYS</span></div>
+          <div style="font-size:.76rem;color:rgba(255,255,255,.55)">03 NIGHTS</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:1.55rem;font-weight:900;color:#f0c060;line-height:1">BDT 12,000/-</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.5)">Per Person (All Inclusive)</div>
+        </div>
+      </div>
+      <div style="height:1px;background:rgba(255,255,255,.1);margin:.8rem 0"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem">
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:.58rem .75rem;display:flex;align-items:center;gap:.55rem">
+          <span style="font-size:1.2rem">📅</span>
+          <div><div style="font-size:.71rem;font-weight:700;color:#fff">Every Wednesday</div><div style="font-size:.6rem;color:rgba(255,255,255,.5)">3:00 PM — Depart from Dhaka</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:.58rem .75rem;display:flex;align-items:center;gap:.55rem">
+          <span style="font-size:1.2rem">🏁</span>
+          <div><div style="font-size:.71rem;font-weight:700;color:#fff">Saturday</div><div style="font-size:.6rem;color:rgba(255,255,255,.5)">7:00 PM — Arrive in Dhaka</div></div>
+        </div>
+      </div>
+    </div>`;
+  el.appendChild(tp);
+
+  // INFO ROW: bus + departing + participants + price
+  const ir=document.createElement('div');
+  ir.style.cssText='background:#f5f0e6;padding:0 10px 8px';
+  ir.innerHTML=`
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:7px">
+      <div style="background:#fff;border-radius:12px;padding:.78rem;border:1px solid #e0d8c8">
+        <div style="font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#999;margin-bottom:.42rem">MODE OF TRANSPORTATION</div>
+        <svg viewBox="0 0 160 72" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:.3rem">
+          <rect x="4" y="18" width="138" height="37" rx="7" fill="#c8d8a8"/>
+          <rect x="7" y="14" width="122" height="34" rx="5" fill="#e8f0d8"/>
+          <rect x="12" y="18" width="21" height="15" rx="3" fill="#a8d8f0" opacity=".88"/>
+          <rect x="37" y="18" width="21" height="15" rx="3" fill="#a8d8f0" opacity=".88"/>
+          <rect x="62" y="18" width="21" height="15" rx="3" fill="#a8d8f0" opacity=".88"/>
+          <rect x="87" y="18" width="21" height="15" rx="3" fill="#a8d8f0" opacity=".88"/>
+          <rect x="10" y="37" width="60" height="8" rx="2" fill="#1a5c28"/>
+          <text x="40" y="44" text-anchor="middle" font-size="5.2" fill="#fff" font-weight="bold">ESDO ECO SAFAR</text>
+          <rect x="4" y="48" width="138" height="6" rx="2" fill="#a8b890"/>
+          <circle cx="32" cy="59" r="9" fill="#2a2a2a"/><circle cx="32" cy="59" r="5.5" fill="#777"/><circle cx="32" cy="59" r="2.2" fill="#ccc"/>
+          <circle cx="116" cy="59" r="9" fill="#2a2a2a"/><circle cx="116" cy="59" r="5.5" fill="#777"/><circle cx="116" cy="59" r="2.2" fill="#ccc"/>
+          <rect x="136" y="27" width="10" height="15" rx="3" fill="#e0d8c8"/>
+          <rect x="138" y="29" width="6" height="6" rx="1" fill="#ffe070" opacity=".8"/>
+          <rect x="2" y="30" width="6" height="10" rx="1" fill="#d8d0c0"/>
+        </svg>
+        <div style="font-size:.63rem;font-weight:700;color:#1a3d22">29 Seated Toyota Coaster 2026</div>
+        <div style="font-size:.56rem;color:#888;margin-top:2px">Fully Air-Conditioned</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:.78rem;border:1px solid #e0d8c8;text-align:center">
+        <div style="font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#999;margin-bottom:.45rem">DEPARTING PLACE</div>
+        <div style="font-size:1.25rem;margin-bottom:.28rem">📍</div>
+        <div style="font-size:.62rem;font-weight:700;color:#1a3d22">ESDO House</div>
+        <div style="font-size:.56rem;color:#666;line-height:1.5;margin-top:.18rem">House 748, Road 8<br>Baitul Aman, Adabar<br>Dhaka-1207</div>
+      </div>
+      <div style="background:#1a5c28;border-radius:12px;padding:.78rem;text-align:center;color:#fff">
+        <div style="font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.45rem">TOTAL PARTICIPANTS</div>
+        <div style="font-size:2.1rem;font-weight:900;color:#f0c060;line-height:1">25</div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.6);margin-top:.18rem">Person</div>
+        <div style="font-size:1.15rem;margin-top:.28rem">👥</div>
+      </div>
+      <div style="background:#c9963a;border-radius:12px;padding:.78rem;text-align:center">
+        <div style="font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(10,34,16,.55);margin-bottom:.45rem">PACKAGE FEE</div>
+        <div style="font-size:.72rem">💰</div>
+        <div style="font-size:1.25rem;font-weight:900;color:#0a2210;line-height:1.1">BDT<br>12,000/-</div>
+        <div style="font-size:.52rem;color:rgba(10,34,16,.6);margin-top:.28rem">Per Person<br>(All Inclusive)</div>
+      </div>
+    </div>`;
+  el.appendChild(ir);
+
+  // ITINERARY
+  const iw=document.createElement('div');
+  iw.style.cssText='background:#f5f0e6;padding:0 10px 8px';
+  const ibox=document.createElement('div');
+  ibox.style.cssText='background:#fff;border-radius:14px;padding:.9rem;border:1px solid #e0d8c8';
+  const ititle=document.createElement('div');
+  ititle.style.cssText='display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem';
+  ititle.innerHTML='<div style="flex:1;height:1px;background:#e8e0d8"></div><span style="font-size:.7rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#1a3d22;white-space:nowrap">🗺 TOUR ITINERARY</span><div style="flex:1;height:1px;background:#e8e0d8"></div>';
+  ibox.appendChild(ititle);
+  const ig=document.createElement('div');
+  ig.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:7px';
+  [
+    {n:'Day-01',col:'#1a5c28',bg:'#e8f5e9',items:['3.00 PM: Depart from ESDO Dhaka Office, Adabar','9.00 PM: Arrive ESDO Silver Jubilee Bhaban, CO Bazar, Rangpur'],night:'Dinner & Night Stay at Rangpur'},
+    {n:'Day-02',col:'#0077b6',bg:'#e3f2fd',items:['Tajhat Jamindarbari','Tista Barrage','Mohanonda Cottage, Tetulia','Tea Garden','O Point','Mohanonda River Point','Tulip Point'],night:'Dinner & Night Stay at Tetulia'},
+    {n:'Day-03',col:'#c9963a',bg:'#fff8e1',items:['Zin Mosque, Balia, Thakurgaon','Lokayan Museum, Thakurgaon','Adibashi Village','Orange Valley','Mozzarella Cheese Production Center','Cultural Program & Dinner'],night:''},
+    {n:'Day-04',col:'#7b1fa2',bg:'#f3e5f5',items:['Kantaji Temple','Short Break with Lunch in ESDO Silver Jubilee Bhaban, Rangpur','Arrive in Dhaka & Closing of the Tour'],night:''},
+  ].forEach(d=>{
+    const c=document.createElement('div');
+    c.style.cssText=`background:${d.bg};border-radius:10px;padding:.65rem .6rem;border-top:3px solid ${d.col}`;
+    let h=`<div style="background:${d.col};color:#fff;font-size:.6rem;font-weight:800;padding:.18rem .55rem;border-radius:20px;display:inline-block;margin-bottom:.45rem">${d.n}</div>`;
+    d.items.forEach(it=>{h+=`<div style="display:flex;gap:.28rem;margin-bottom:.25rem;align-items:flex-start"><span style="color:${d.col};font-size:.58rem;flex-shrink:0;margin-top:2px">●</span><span style="font-size:.58rem;color:#333;line-height:1.42">${it}</span></div>`;});
+    if(d.night){h+=`<div style="margin-top:.38rem;background:rgba(0,0,0,.06);border-radius:6px;padding:.28rem .45rem;font-size:.56rem;color:#444;display:flex;gap:.28rem;align-items:center"><span>🛏</span>${d.night}</div>`;}
+    c.innerHTML=h;
+    ig.appendChild(c);
+  });
+  ibox.appendChild(ig);
+
+  // FACILITIES + EXCLUDED
+  const fac=document.createElement('div');
+  fac.style.cssText='display:grid;grid-template-columns:1.4fr 1fr;gap:7px;margin-top:7px';
+  fac.innerHTML=`
+    <div style="background:#e8f5e9;border-radius:10px;padding:.72rem .82rem;border:1px solid #c8e6c9">
+      <div style="font-size:.6rem;font-weight:800;color:#1a5c28;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.45rem">FACILITIES</div>
+      ${['✅ Fully A/C Brand New Toyota Coaster','✅ Twin Share A/C Accommodation in ESDO\'s luxurious guest houses','✅ Educated Travel Guide','✅ Standard Local Food'].map(f=>`<div style="font-size:.6rem;color:#2e7d32;margin-bottom:.2rem">${f}</div>`).join('')}
+    </div>
+    <div style="background:#fff8e1;border-radius:10px;padding:.72rem .82rem;border:1px solid #ffe082">
+      <div style="font-size:.6rem;font-weight:800;color:#e65100;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.45rem">EXCLUDED</div>
+      ${['❌ Any entry ticket in any tourist Point (Except Lokayan Museum)','❌ Any Personal Cost'].map(f=>`<div style="font-size:.6rem;color:#bf360c;margin-bottom:.2rem">${f}</div>`).join('')}
+    </div>`;
+  ibox.appendChild(fac);
+  iw.appendChild(ibox);
+  el.appendChild(iw);
+
+  // CONTACT + BOOKING
+  const foot=document.createElement('div');
+  foot.style.cssText='background:#f5f0e6;padding:0 10px 10px';
+  foot.innerHTML=`
+    <div style="background:#0d2b12;border-radius:14px;padding:.88rem 1rem;display:grid;grid-template-columns:auto 1fr 1fr auto;gap:.75rem;align-items:center">
+      <div style="background:#c9963a;border-radius:8px;padding:.32rem .6rem;text-align:center;font-size:.6rem;font-weight:800;color:#0a2210">PLEASE<br>CONTACT</div>
+      <div><div style="font-size:.73rem;font-weight:700;color:#fff">Sujan Khan</div><div style="font-size:.6rem;color:rgba(255,255,255,.48)">General Manager, Eco Safar</div></div>
+      <div><div style="font-size:.73rem;font-weight:700;color:#fff">Saoujaanno Sarker</div><div style="font-size:.6rem;color:rgba(255,255,255,.48)">Marketing Manager, ESDO Safar</div></div>
+      <div style="text-align:center">
+        <div style="font-size:.55rem;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.28rem">FOR ONLINE BOOKING<br>PLEASE VISIT:</div>
+        <div style="background:#fff;border-radius:8px;padding:4px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;margin:0 auto">
+          <svg viewBox="0 0 40 40" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="16" height="16" rx="2" fill="none" stroke="#0d2b12" stroke-width="1.5"/>
+            <rect x="4" y="4" width="10" height="10" rx="1" fill="#0d2b12"/>
+            <rect x="23" y="1" width="16" height="16" rx="2" fill="none" stroke="#0d2b12" stroke-width="1.5"/>
+            <rect x="26" y="4" width="10" height="10" rx="1" fill="#0d2b12"/>
+            <rect x="1" y="23" width="16" height="16" rx="2" fill="none" stroke="#0d2b12" stroke-width="1.5"/>
+            <rect x="4" y="26" width="10" height="10" rx="1" fill="#0d2b12"/>
+            <rect x="23" y="23" width="5" height="5" fill="#0d2b12"/>
+            <rect x="31" y="23" width="5" height="5" fill="#0d2b12"/>
+            <rect x="36" y="23" width="4" height="5" fill="#0d2b12"/>
+            <rect x="23" y="31" width="5" height="5" fill="#0d2b12"/>
+            <rect x="31" y="31" width="5" height="5" fill="#0d2b12"/>
+            <rect x="36" y="36" width="4" height="4" fill="#0d2b12"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff8e1;border-radius:10px;padding:.52rem .82rem;margin-top:7px;display:flex;align-items:center;gap:.55rem;border:1px solid #ffe082">
+      <div style="width:36px;height:36px;border-radius:50%;background:#c9963a;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">👶</div>
+      <div style="font-size:.6rem;color:#7a5500;line-height:1.5"><strong>INFANT BABY</strong> — Less than 2 years free of cost but no seat in travel or accommodation</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#061208,#0d2b12);border-radius:10px;padding:.78rem 1rem;margin-top:7px;text-align:center">
+      <div style="font-size:.66rem;color:rgba(240,192,96,.85);font-style:italic;line-height:1.7">Let's Travel Responsibly. Let's Protect Nature. Let's Promote Local Communities.</div>
+      <div style="display:flex;justify-content:center;gap:.38rem;margin-top:.38rem;flex-wrap:wrap">
+        ${['🌿 Eco Tourism','🤝 Community First','♻ Responsible Travel'].map(t=>`<span style="background:rgba(82,183,136,.15);border:1px solid rgba(82,183,136,.25);color:#52b788;font-size:.56rem;font-weight:600;padding:.16rem .55rem;border-radius:20px">${t}</span>`).join('')}
+      </div>
+    </div>`;
+  el.appendChild(foot);
+}
+
+// ── INIT
+function init(){
+  buildMap();
+  buildEcoPoster();
+
+  // simple weather
+  const wEl=qs('#wth-simple');
+  if(wEl){
+    const wData=[
+      {m:'January',t:12,r:10,tag:'⭐ Kanchenjunga'},
+      {m:'February',t:16,r:15,tag:'⭐ Kanchenjunga'},
+      {m:'March',t:24,r:30,tag:''},
+      {m:'April',t:30,r:50,tag:''},
+      {m:'May',t:33,r:80,tag:'🎣 মাছ ধরার মৌসুম'},
+      {m:'June',t:32,r:100,tag:'⚠ Flood risk'},
+      {m:'July',t:30,r:100,tag:'⚠ Flood risk'},
+      {m:'August',t:30,r:95,tag:''},
+      {m:'September',t:29,r:70,tag:''},
+      {m:'October',t:26,r:35,tag:'🍃 Tea picking'},
+      {m:'November',t:19,r:12,tag:'⭐ Kanchenjunga'},
+      {m:'December',t:13,r:8,tag:'❄ Coldest'},
+    ];
+    wEl.innerHTML=wData.map(d=>`<div style="display:grid;grid-template-columns:95px 1fr 65px 170px;align-items:center;gap:.65rem;padding:.42rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.77rem"><div style="font-weight:600;color:var(--forest)">${d.m}</div><div style="background:#e8f5ee;border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;border-radius:4px;width:${d.r}%;background:${d.r>70?'#0096c7':d.r>30?'#52b788':'#1a4731'}"></div></div><div style="text-align:right;color:#666">${d.t}°C</div><div style="font-size:.66rem;color:var(--jade);font-weight:600">${d.tag}</div></div>`).join('');
+  }
+
+  // nav scroll highlight
+  const secs=qsa('section[id],header[id]');
+  const links=qsa('.nav-link');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const a=document.querySelector('.nav-link[href="#'+e.target.id+'"]');
+        if(a)a.classList.add('active');
+      }
+    });
+  },{threshold:.3});
+  secs.forEach(s=>obs.observe(s));
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',init);
+}else{
+  init();
+}
+</script>
+</body>
+</html>
